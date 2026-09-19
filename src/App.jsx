@@ -41,7 +41,6 @@ const App = () => {
     getLocation()
   }, [])
 
-  //Load cart from local storage on initial render
   useEffect(() => {
     const storedCart = localStorage.getItem('cartItem')
     if(storedCart){
@@ -49,7 +48,6 @@ const App = () => {
     }
   }, []);
 
-  //save cart to local storage whenever it changes
   useEffect(() => {
     localStorage.setItem('cartItem', JSON.stringify(cartItem))
   }, [cartItem])
