@@ -22,15 +22,12 @@ const App = () => {
   const getLocation = async () => {
     navigator.geolocation.getCurrentPosition(async pos => {
       const { latitude, longitude } = pos.coords
-      // console.log(latitude, longitude);
-
       const url = `https://nominatim.openstreetmap.org/reverse?lat=${latitude}&lon=${longitude}&format=json`
       try {
         const location = await axios.get(url)
         const exactLocation = location.data.address
         setLocation(exactLocation)
         setOpenDropdown(false)
-        // console.log(exactLocation);
 
       } catch (error) {
         console.log(error);
